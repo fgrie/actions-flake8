@@ -14,7 +14,7 @@ else
   # add "word boundaries" (but with digits) to distinguish between "B" and "BLK"
   error_classes_bounded=$(echo "${error_classes}" | sed "s/|/\\\\D|/g")
   # if error classes string is not empty, append delimiter
-  if [! -z "${error_classes_bounded}" ]; then
+  if ! [ -z "${error_classes_bounded}" ]; then
     error_classes_bounded+="\\D"
   fi
   echo "error_classes_bounded: ${error_classes_bounded}"
