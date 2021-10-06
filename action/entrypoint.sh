@@ -16,6 +16,7 @@ else
   # if error classes string is not empty, append delimiter
   if [ -z "${error_classes_bounded}" ]; then
     error_classes_bounded+="\\D"
+  fi
   sed -i "s/{{warning_expression}}/^(?!${error_classes_bounded})\\D*/g" "${ACTION_FOLDER}/flake8-matcher.json"
 fi
 echo "::add-matcher::${ACTION_FOLDER}/flake8-matcher.json"
