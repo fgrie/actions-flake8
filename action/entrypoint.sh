@@ -3,12 +3,12 @@
 # Enable the matcher.
 ACTION_FOLDER=$(dirname ${0})
 echo " - error_classes: '${INPUT_ERROR_CLASSES}'"
-error_classes=$(echo "${INPUT_ERROR_CLASSES}" | sed "s/,//g")
+error_classes=$(echo "${INPUT_ERROR_CLASSES}" | sed "s/,/|/g")
 sed -i "s/{{error_expression}}/(?:${error_classes})/g" "${ACTION_FOLDER}/flake8-matcher.json"
 
 echo " - warning_classes: '${INPUT_WARNING_CLASSES}'"
 if [ -n "${INPUT_WARNING_CLASSES}" ]; then
-  warning_classes=$(echo "${INPUT_WARNING_CLASSES}" | sed "s/,//g")
+  warning_classes=$(echo "${INPUT_WARNING_CLASSES}" | sed "s/,/|/g")
   sed -i "s/{{warning_expression}}/(?:${warning_classes})/g" "${ACTION_FOLDER}/flake8-matcher.json"
 else
   sed -i "s/{{warning_expression}}/^(?:${error_classes})/g" "${ACTION_FOLDER}/flake8-matcher.json"
