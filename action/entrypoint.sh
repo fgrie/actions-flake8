@@ -12,10 +12,10 @@ if [ -n "${INPUT_WARNING_CLASSES}" ]; then
   sed -i "s/{{warning_expression}}/(?:${warning_classes})/g" "${ACTION_FOLDER}/flake8-matcher.json"
 else
   # add "word boundaries" (but with digits) to distinguish between "B" and "BLK"
-  error_classes_bounded=$(echo "${error_classes}" | sed "s/|/\\\\D|/g")
+  error_classes_bounded=$(echo "${error_classes}" | sed "s/|/\\\\\\D|/g")
   # if error classes string is not empty, append delimiter
   if ! [ -z "${error_classes_bounded}" ]; then
-    error_classes_bounded="${error_classes_bounded}\\D"
+    error_classes_bounded="${error_classes_bounded}\\\\D"
   fi
   echo "error_classes_bounded: ${error_classes_bounded}"
   sed -i "s/{{warning_expression}}/^(?!${error_classes_bounded})\\D*/g" "${ACTION_FOLDER}/flake8-matcher.json"
