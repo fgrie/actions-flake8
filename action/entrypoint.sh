@@ -20,7 +20,7 @@ else
     error_classes_bounded="${error_classes_bounded}${escaped_D}"
   fi
   echo "error_classes_bounded: ${error_classes_bounded}"
-  sed -i "s/{{warning_expression}}/^(?!${error_classes_bounded})${escaped_D}*/g" "${ACTION_FOLDER}/flake8-matcher.json"
+  sed -i "s/{{warning_expression}}/(?!${error_classes_bounded})${escaped_D}*/g" "${ACTION_FOLDER}/flake8-matcher.json"
   echo "matcher:"
   echo "$(cat ${ACTION_FOLDER}/flake8-matcher.json)"
 fi
