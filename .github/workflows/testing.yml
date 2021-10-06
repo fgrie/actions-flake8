@@ -81,6 +81,19 @@ jobs:
           warning_classes: E,F
           error_classes: W,B
           only_warn: 1
+    
+  run_action_with_multichar_classes:
+    name: Test run action (multi character classes)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+            plugins: flake8-black
+            path: example_black
+            ignore: E,F,W,C                 # ignore everything except BLK
+            error_classes: BLK
+            only_warn: 1
 
   codespell:
     name: Check for spelling errors
