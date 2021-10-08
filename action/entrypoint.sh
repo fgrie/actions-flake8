@@ -30,6 +30,9 @@ echo " - ignoring: '${INPUT_IGNORE}'"
 if [ "x${INPUT_IGNORE}" != "x" ]; then
     command_args="${command_args} --ignore ${INPUT_IGNORE}"
 fi
+if [ "x${INPUT_EXCLUDE}" != "x" ]; then
+    command_args="${command_args} --exclude \"${INPUT_EXCLUDE}\""
+fi
 echo " - max line length: '${INPUT_MAX_LINE_LENGTH}'"
 if [ "x${INPUT_MAX_LINE_LENGTH}" != "x" ]; then
     command_args="${command_args} --max-line-length ${INPUT_MAX_LINE_LENGTH}"
