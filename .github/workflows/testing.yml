@@ -117,7 +117,7 @@ jobs:
       - uses: ./
         with:
             plugins: flake8-black
-            exclude: ./example_black/*
+            exclude: example_black
             ignore: E,F,W,C                 # ignore everything except BLK
             error_classes: BLK
             only_warn: 1
