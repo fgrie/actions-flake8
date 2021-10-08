@@ -10,6 +10,10 @@ inputs:
     description: 'Skip errors and warnings (e.g. E4,W)'
     required: false
     default: ''
+  exclude:
+    description: 'Pattern for files to exclude'
+    required: false
+    default: ''
   max_line_length:
     description: 'Set maximum allowed line length'
     required: false
