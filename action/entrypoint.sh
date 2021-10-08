@@ -30,6 +30,7 @@ echo " - ignoring: '${INPUT_IGNORE}'"
 if [ "x${INPUT_IGNORE}" != "x" ]; then
     command_args="${command_args} --ignore ${INPUT_IGNORE}"
 fi
+echo " - excluding: '${INPUT_EXCLUDE}'"
 if [ "x${INPUT_EXCLUDE}" != "x" ]; then
     command_args="${command_args} --exclude \"${INPUT_EXCLUDE}\""
 fi

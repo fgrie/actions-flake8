@@ -58,6 +58,7 @@ runs:
     env:
       INPUT_PATH: ${{ inputs.path }}
       INPUT_IGNORE: ${{ inputs.ignore }}
+      INPUT_EXCLUDE: ${{ inputs.exclude }}
       INPUT_MAX_LINE_LENGTH: ${{ inputs.max_line_length }}
       INPUT_ONLY_WARN: ${{ inputs.only_warn }}
       INPUT_FLAKE8_VERSION: ${{ inputs.flake8_version }}
